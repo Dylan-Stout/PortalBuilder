@@ -1,0 +1,81 @@
+
+
+#registerUser{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    max-width: 600px;
+    padding: 10px;  
+    float: none;
+}
+
+#agreement{
+	width: 80%;
+	height: 40%;
+	max-height: 350px;
+	min-height: 100px;
+	overflow-y: scroll;
+}
+
+#companyLogoDiv{ 
+    margin: auto;
+    padding: 10px;
+    float: none;
+ }
+
+
+ #agreementText{ 
+	size: 10px;
+  }
+
+ #iAgreeCheckbox .ui-checkbox {
+    width: 60%;
+}
+
+#addressRequested { 
+	display: none;
+ }
+
+ #connectionStatus{
+	display: none;
+ }
+
+ #connected{
+	display: none;
+ }
+
+ #checkMark{
+ 	display: inline-block;
+ }
+
+ #showDnsOk{
+ 	display: none;
+ }
+
+ #showAddressOk{ 
+ 	display: none;
+  }
+
+@media screen and (max-width: 800px) {
+
+        #agreement{
+            width: 80%;
+            height: 40%;
+            max-height: 350px;
+            min-height: 100px;
+            overflow-y: scroll;
+        }
+
+        #iAgreeLink{ 
+            width: 80%;
+            margin: auto;
+         }
+
+         #companyLogoDiv{ 
+            height: auto; 
+            width: auto; 
+            max-width: 400px; 
+            max-height: 300px;
+
+        }
+}

