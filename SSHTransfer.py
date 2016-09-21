@@ -57,23 +57,19 @@ def put_dir(sftp, source, target, numFiles, progress=0):
         target directory needs to exists. All subdirectories in source are 
         created under target.
     '''
-    
-
-
     for item in os.listdir(source):
         if os.path.isfile(os.path.join(source, item)):
-            #sys.stdout.write("\rTransfering " + os.path.join(source, item) + " to %s/%s" % (target, item))
+            sys.stdout.write("\r\033[KTransfering " + os.path.join(source, item) + " to %s/%s" % (target, item))
             sftp.put(os.path.join(source, item), '%s/%s' % (target, item))
             progress+=1
             printProgress(progress, numFiles, "Progress: ", "Complete", 1, 50)
         else:
-            
-            #sys.stdout.write("\rCreating directory %s/%s\n" % (target, item))
+            sys.stdout.write("\r\033[KCreating directory %s/%s\n" % (target, item))
             remote_dir = ('%s/%s' % (target, item))
             try:
                 sftp.mkdir(remote_dir)
             except IOError:
-                sys.stdout.write( '%s already exists.' % remote_dir)
+                sys.stdout.write( '\r\033[K%s already exists.' % remote_dir)
             progress = put_dir(sftp, os.path.join(source, item), '%s/%s' % (target, item), numFiles, progress)
     return progress
 
@@ -98,7 +94,7 @@ def upload_sftp(u,p,ipHostname,localPath,remotePath):
     transport.close()
 
 # if __name__ == "__main__":
-#     
-#     upload_sftp('root', '$G7nd7lf7$', '172.16.42.1', "/Users/dylan/Documents/workspace/PortalBuilder/Portal49815/", "/www/")
+#      
+#     upload_sftp('root', '$G7nd7lf7$', '172.16.42.1', "/Users/dylan/Documents/workspace/PortalBuilder/Portal32824", "/www/")
 #     print("\n################################## \nSFTP deploy completed!")
-    
+#     

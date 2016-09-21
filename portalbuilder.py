@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import fileinput
-import re, os, sys, paramiko, random
+import re, os, sys, paramiko, random, getpass
 from distutils.util import strtobool
 from pyfiglet import Figlet
 from __builtin__ import raw_input
@@ -27,7 +27,7 @@ print('\n')
 #
 ##############################################################
 
-dir = os.path.dirname(__file__)
+dir = os.path.dirname(os.path.abspath(__file__))
 inputIndexFile = os.path.join(dir, 'SecurEdge','index.html')
 portalId = str(random.randint(0,66666))
 
@@ -74,29 +74,29 @@ templateDir = ""
 while(notChosen):
     template = raw_input("Choose from the following templates: \n1. Cisco(NoDogSplash)\n2. SecurEdge(NoDogSplash)\n3. Starbucks (NoDogSplash)\n4. Custom - NoDogSplash (w/$authtarget)\n")
     if template == '1':
-        templateDir = dir + "/Cisco"
+        templateDir = dir + "/Cisco/"
         notChosen = False
         custom = False
     elif template == '2':
-        templateDir = dir + "/SecurEdge"
+        templateDir = dir + "/SecurEdge/"
         notChosen == False
         custom = False
     elif template == '3':
-        templateDir = dir + "/Starbucks"
+        templateDir = dir + "/Starbucks/"
         notChosen == False
         custom = False
     elif template == '4':
-        templateDir = dir + "/SecurEdge"
+        templateDir = dir + "/SecurEdge/"
         notChosen = False
     else:
         print("Invalid choice, please try again...\n ")
         
 isUsingFtp = user_yes_no_query("Would you like to deploy using SFTP? ")
 if isUsingFtp:
-    pineappleIp = raw_input("SFTP IP Address / Hostname : ")
-    pineappleUser = raw_input("SFTP Username : ")
-    pineapplePassword = raw_input("SFTP Password : ")
-    pineaapleDirectory =raw_input("SFTP Remote Directory : ")
+    sftpIp         = raw_input("SFTP IP Address / Hostname : ")
+    sftpUser       = raw_input("SFTP Username : ")
+    sftpPassword   = getpass.getpass("SFTP Password : ")
+    sftpDirectory  = raw_input("SFTP Remote Directory : ")
 isSaving = user_yes_no_query("Would you like to save portal to local disk? ")
 if isSaving:
     isDefaultLocation = user_yes_no_query("Save to default directory?")
@@ -105,9 +105,7 @@ if isSaving:
     else:
         outputDir = raw_input("Enter local directory to save files into Ex. /Users/${user}/Documents: ") 
         
-
-
-        
+ 
 ##############################################################
 #
 #                      Main methods
@@ -130,8 +128,8 @@ if isUsingFtp:
             for line in f:
                 replacedLine = multiple_replace(replacementDict,line)
                 outTempFile.write(replacedLine)
-    SSHTransfer.upload_sftp(pineappleUser, pineapplePassword, pineappleIp, tmpDir, pineaapleDirectory)
-    print("\n####################################\nDeploy completed.\nPortal files uploaded to: " + pineaapleDirectory)
+    SSHTransfer.upload_sftp(sftpUser, sftpPassword, sftpIp, tmpDir, sftpDirectory)
+    print("\n####################################\nDeploy completed.\nPortal files uploaded to: " + sftpDirectory)
    
 if isSaving:
     copytree(templateDir, outputDir)
@@ -145,9 +143,8 @@ if isSaving:
                 outFile.write(replacedLine)
     print " \n\tPortal saved to disk at: " + outputDir
 
-    
-    
-
 print "\nPortal-builder complete! \nExiting..." 
+
+    
 
 
